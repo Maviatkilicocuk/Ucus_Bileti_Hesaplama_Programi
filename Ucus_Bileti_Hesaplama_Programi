@@ -1,0 +1,83 @@
+package Giris;
+import java.util.Scanner;
+
+public class Ucus_Bileti_Hesaplama_Porgrami {
+    public static void main(String[] args) {
+        int km,yas,yolculuk;
+        double ucret,inducret,gdinducret;
+
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Lütfen uçacağınız mesafeyi giriniz :");
+        km = input.nextInt();
+
+        System.out.print("Lütfen Yaşınızı giriniz : ");
+        yas = input.nextInt();
+
+        System.out.print("Yolculuk tipinizi giriniz : (tek yön (1) veya gidiş-dönüş (2)) ");
+        yolculuk = input.nextInt();
+
+        if ( (km > 0 && yas > 0 && yas < 100) && ( yolculuk == 1 | yolculuk == 2) ) {
+            if (yas < 12) {
+                if (yolculuk == 1) {
+                    ucret = km * 0.10;
+                    inducret = ucret - (ucret * 0.5);
+                    System.out.println("Normalde ödeyeceğiniz ücret " + ucret);
+                    System.out.println("İndirimli ödeyeceğiniz ücret " + inducret);
+                }
+                if (yolculuk == 2) {
+                    ucret = 2 * km * 0.10;
+                    inducret = ucret - (ucret * 0.5);
+                    gdinducret = inducret - (inducret * 0.2);
+                    System.out.println("Normalde ödeyeceğiniz ücret " + ucret);
+                    System.out.println("İndirimli ödeyeceğiniz ücret " + gdinducret);
+                }
+            }
+            if (yas >= 12 && yas < 24) {
+                if (yolculuk == 1) {
+                    ucret = km * 0.10;
+                    inducret = ucret - (ucret * 0.1);
+                    System.out.println("Normalde ödeyeceğiniz ücret " + ucret);
+                    System.out.println("İndirimli ödeyeceğiniz ücret " + inducret);
+                }
+                if (yolculuk == 2) {
+                    ucret = 2 * km * 0.10;
+                    inducret = ucret - (ucret * 0.1);
+                    gdinducret = inducret - (inducret * 0.2);
+                    System.out.println("Normalde ödeyeceğiniz ücret " + ucret);
+                    System.out.println("İndirimli ödeyeceğiniz ücret " + gdinducret);
+                }
+            }
+            if (yas >= 24 && yas <= 65) {
+                if (yolculuk == 1) {
+                    ucret = km * 0.10;
+                    inducret = ucret - (ucret * 0.1);
+                    System.out.println("Ödeyeceğiniz ücret " + ucret);
+                }
+                if (yolculuk == 2) {
+                    ucret = 2 * km * 0.10;
+                    gdinducret = ucret - (ucret * 0.2);
+                    System.out.println("Normalde ödeyeceğiniz ücret " + ucret);
+                    System.out.println("İndirimli ödeyeceğiniz ücret " + gdinducret);
+                }
+            }
+            if (yas > 65) {
+                if (yolculuk == 1) {
+                    ucret = km * 0.10;
+                    inducret = ucret - (ucret * 0.3);
+                    System.out.println("Normalde ödeyeceğiniz ücret " + ucret);
+                    System.out.println("İndirimli ödeyeceğiniz ücret " + inducret);
+                }
+                if (yolculuk == 2) {
+                    ucret = 2 * km * 0.10;
+                    inducret = ucret - (ucret * 0.3);
+                    gdinducret = inducret - (inducret * 0.2);
+                    System.out.println("Normalde ödeyeceğiniz ücret " + ucret);
+                    System.out.println("İndirimli ödeyeceğiniz ücret " + gdinducret);
+                }
+            }
+        }else {
+            System.out.println("Hatalı veri girdiniz!");
+        }
+    }
+}
